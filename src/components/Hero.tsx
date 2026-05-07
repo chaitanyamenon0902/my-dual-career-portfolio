@@ -2,14 +2,17 @@ import { useEffect, useState } from "react";
 import portrait from "@/assets/chaitanya.jpg";
 import { useMode } from "./ModeToggle";
 
-function useTypewriter(text: string, { typeMs = 75, deleteMs = 40, holdMs = 1400 } = {}) {
+function useTypewriter(words: string[], { typeMs = 75, deleteMs = 40, holdMs = 1400 } = {}) {
   const [out, setOut] = useState("");
+  const key = words.join("|");
   useEffect(() => {
+    let w = 0;
     let i = 0;
     let phase: "type" | "hold" | "delete" = "type";
     let timer: ReturnType<typeof setTimeout>;
     setOut("");
     const tick = () => {
+      const text = words[w];
       if (phase === "type") {
         i++;
         setOut(text.slice(0, i));
@@ -21,13 +24,13 @@ function useTypewriter(text: string, { typeMs = 75, deleteMs = 40, holdMs = 1400
       } else {
         i--;
         setOut(text.slice(0, i));
-        if (i <= 0) { phase = "type"; timer = setTimeout(tick, typeMs); return; }
+        if (i <= 0) { w = (w + 1) % words.length; phase = "type"; timer = setTimeout(tick, typeMs); return; }
         timer = setTimeout(tick, deleteMs);
       }
     };
     timer = setTimeout(tick, typeMs);
     return () => clearTimeout(timer);
-  }, [text, typeMs, deleteMs, holdMs]);
+  }, [key, typeMs, deleteMs, holdMs]);
   return out;
 }
 
@@ -58,8 +61,9 @@ const skillsByMode: Record<"web" | "data", Skill[]> = {
 
 export function Hero() {
   const { mode } = useMode();
+  const roles = ["Full Stack Developer", "Mobile App Developer", "Data Analyst", "ML Engineer"];
   const title = mode === "web" ? "Full Stack Developer" : "Data Scientist";
-  const typed = useTypewriter(title);
+  const typed = useTypewriter(roles);
 
   return (
     <section className="px-6 sm:px-12 lg:px-20 pt-28 pb-16 max-w-7xl mx-auto">
