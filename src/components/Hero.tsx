@@ -61,8 +61,9 @@ const skillsByMode: Record<"web" | "data", Skill[]> = {
 
 export function Hero() {
   const { mode } = useMode();
+  const roles = ["Full Stack Developer", "Mobile App Developer", "Data Analyst", "ML Engineer"];
   const title = mode === "web" ? "Full Stack Developer" : "Data Scientist";
-  const typed = useTypewriter(title);
+  const typed = useTypewriter(roles);
 
   return (
     <section className="px-6 sm:px-12 lg:px-20 pt-28 pb-16 max-w-7xl mx-auto">
