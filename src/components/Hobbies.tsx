@@ -1,7 +1,8 @@
 const HOBBIES = [
-  { title: "Reading", desc: "Devouring books on tech, science, and the occasional thriller." },
-  { title: "Football", desc: "Weekend matches with friends — keeps the mind sharp." },
-  { title: "Coding", desc: "Tinkering on side projects and exploring new frameworks." },
+  { title: "Reading", desc: "Thrillers, tech deep-dives, and research papers — anything that keeps the brain ticking." },
+  { title: "Volleyball", desc: "Played at the inter-university level — love the speed, the spikes, and the team energy." },
+  { title: "Doodling", desc: "Sketching out whatever's on my mind — ideas, characters, random shapes that turn into stories." },
+  { title: "Coding", desc: "Always hunting for something new to build, break, and learn from." },
 ];
 
 export function Hobbies() {
