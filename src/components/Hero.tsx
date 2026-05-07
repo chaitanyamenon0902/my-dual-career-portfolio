@@ -59,13 +59,19 @@ const skillsByMode: Record<"web" | "data", Skill[]> = {
 export function Hero() {
   const { mode } = useMode();
   const title = mode === "web" ? "Full Stack Developer" : "Data Scientist";
+  const typed = useTypewriter(title);
 
   return (
     <section className="px-6 sm:px-12 lg:px-20 pt-28 pb-16 max-w-7xl mx-auto">
       <h1 className="text-4xl sm:text-6xl lg:text-7xl leading-tight tracking-tight">
         Hi, I'm <span className="text-primary text-glow-primary">Chaitanya</span>
         <br />
-        {title}
+        <span aria-label={title}>{typed}</span>
+        <span
+          className="inline-block w-[0.55ch] ml-1 align-middle bg-primary animate-pulse"
+          style={{ height: "0.85em" }}
+          aria-hidden
+        />
       </h1>
 
       <div className="mt-20 flex flex-col gap-6">
