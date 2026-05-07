@@ -1,10 +1,30 @@
 import portrait from "@/assets/chaitanya.jpg";
 import { useMode } from "./ModeToggle";
 
-const skillsByMode = {
-  web: ["JavaScript", "React", "Node.js", "Express", "MongoDB", "Prisma", "Firebase", "HTML"],
-  data: ["Python", "TensorFlow", "Scikit-learn", "Pandas", "NumPy", "Matplotlib", "SQL", "Power BI"],
-} as const;
+type Skill = { name: string; slug: string; color: string };
+
+const skillsByMode: Record<"web" | "data", Skill[]> = {
+  web: [
+    { name: "JavaScript", slug: "javascript", color: "F7DF1E" },
+    { name: "React", slug: "react", color: "61DAFB" },
+    { name: "Node.js", slug: "nodedotjs", color: "5FA04E" },
+    { name: "Express", slug: "express", color: "FFFFFF" },
+    { name: "MongoDB", slug: "mongodb", color: "47A248" },
+    { name: "Prisma", slug: "prisma", color: "2D3748" },
+    { name: "Firebase", slug: "firebase", color: "DD2C00" },
+    { name: "HTML", slug: "html5", color: "E34F26" },
+  ],
+  data: [
+    { name: "Python", slug: "python", color: "3776AB" },
+    { name: "TensorFlow", slug: "tensorflow", color: "FF6F00" },
+    { name: "Scikit-learn", slug: "scikitlearn", color: "F7931E" },
+    { name: "Pandas", slug: "pandas", color: "150458" },
+    { name: "NumPy", slug: "numpy", color: "013243" },
+    { name: "Matplotlib", slug: "plotly", color: "3F4F75" },
+    { name: "MySQL", slug: "mysql", color: "4479A1" },
+    { name: "Power BI", slug: "powerbi", color: "F2C811" },
+  ],
+};
 
 export function Hero() {
   const { mode } = useMode();
@@ -37,12 +57,22 @@ export function Hero() {
         </div>
         <div className="flex flex-wrap gap-3 mt-2">
           {skillsByMode[mode].map((s) => (
-            <span
-              key={s}
-              className="text-xs px-3 py-1.5 rounded-md border border-border bg-surface-elevated"
-            >
-              {s}
-            </span>
+            <div key={s.name} className="group relative">
+              <div
+                className="w-11 h-11 rounded-full bg-surface-elevated border border-border flex items-center justify-center hover:border-primary hover:-translate-y-0.5 transition-all"
+                aria-label={s.name}
+              >
+                <img
+                  src={`https://cdn.simpleicons.org/${s.slug}/${s.color}`}
+                  alt={s.name}
+                  className="w-5 h-5"
+                  loading="lazy"
+                />
+              </div>
+              <span className="pointer-events-none absolute -top-9 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md border border-border bg-card px-2 py-1 text-[11px] opacity-0 group-hover:opacity-100 transition-opacity">
+                {s.name}
+              </span>
+            </div>
           ))}
         </div>
       </div>
