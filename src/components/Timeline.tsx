@@ -34,6 +34,26 @@ const PROJECTS: Record<"web" | "data", Project[]> = {
       ],
     },
     {
+      id: "iste-web",
+      name: "ISTE NITK Website",
+      tagline: "Lead dev of the official ISTE NITK site — fully backend-automated.",
+      tools: ["React", "Vite", "Prisma", "PostgreSQL", "Neon", "Google Cloud Storage"],
+      highlights: [
+        "Led development, deployment, and maintenance end to end.",
+        "Projects & Team pages auto-render from Neon Postgres via Prisma.",
+        "Gallery auto-syncs from Google Cloud Storage — zero manual uploads.",
+      ],
+      next: [
+        "Add an admin dashboard for content edits without DB access.",
+        "Image CDN + lazy loading for faster gallery loads.",
+        "Search and filters across projects and members.",
+      ],
+      events: [
+        { title: "ISTE Website — Launch", desc: "Shipped React + Vite site with Prisma/Postgres backend." },
+        { title: "ISTE Website — Automation", desc: "Wired Neon DB and GCS so projects, team, and gallery update themselves." },
+      ],
+    },
+    {
       id: "iste",
       name: "ISTE App",
       tagline: "Members-only mobile app for events, profiles, and tracking.",
