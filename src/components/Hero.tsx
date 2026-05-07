@@ -57,12 +57,22 @@ export function Hero() {
         </div>
         <div className="flex flex-wrap gap-3 mt-2">
           {skillsByMode[mode].map((s) => (
-            <span
-              key={s}
-              className="text-xs px-3 py-1.5 rounded-md border border-border bg-surface-elevated"
-            >
-              {s}
-            </span>
+            <div key={s.name} className="group relative">
+              <div
+                className="w-11 h-11 rounded-full bg-surface-elevated border border-border flex items-center justify-center hover:border-primary hover:-translate-y-0.5 transition-all"
+                aria-label={s.name}
+              >
+                <img
+                  src={`https://cdn.simpleicons.org/${s.slug}/${s.color}`}
+                  alt={s.name}
+                  className="w-5 h-5"
+                  loading="lazy"
+                />
+              </div>
+              <span className="pointer-events-none absolute -top-9 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md border border-border bg-card px-2 py-1 text-[11px] opacity-0 group-hover:opacity-100 transition-opacity">
+                {s.name}
+              </span>
+            </div>
           ))}
         </div>
       </div>
