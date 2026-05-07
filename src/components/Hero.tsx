@@ -1,5 +1,35 @@
+import { useEffect, useState } from "react";
 import portrait from "@/assets/chaitanya.jpg";
 import { useMode } from "./ModeToggle";
+
+function useTypewriter(text: string, { typeMs = 75, deleteMs = 40, holdMs = 1400 } = {}) {
+  const [out, setOut] = useState("");
+  useEffect(() => {
+    let i = 0;
+    let phase: "type" | "hold" | "delete" = "type";
+    let timer: ReturnType<typeof setTimeout>;
+    setOut("");
+    const tick = () => {
+      if (phase === "type") {
+        i++;
+        setOut(text.slice(0, i));
+        if (i >= text.length) { phase = "hold"; timer = setTimeout(tick, holdMs); return; }
+        timer = setTimeout(tick, typeMs);
+      } else if (phase === "hold") {
+        phase = "delete";
+        timer = setTimeout(tick, deleteMs);
+      } else {
+        i--;
+        setOut(text.slice(0, i));
+        if (i <= 0) { phase = "type"; timer = setTimeout(tick, typeMs); return; }
+        timer = setTimeout(tick, deleteMs);
+      }
+    };
+    timer = setTimeout(tick, typeMs);
+    return () => clearTimeout(timer);
+  }, [text, typeMs, deleteMs, holdMs]);
+  return out;
+}
 
 type Skill = { name: string; slug: string; color: string };
 
