@@ -79,8 +79,15 @@ export function Hero() {
       </h1>
 
       <div className="mt-20 flex flex-col gap-6">
-        <div className="inline-flex w-fit rounded-full bg-primary text-primary-foreground text-[11px] px-3 py-1 font-semibold">
-          7.71 CGPA
+        <div className="relative w-32 h-32">
+          <img
+            src={portrait}
+            alt="Chaitanya Menon"
+            className="w-32 h-32 rounded-full object-cover ring-glow-primary"
+          />
+          <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 rounded-full bg-primary text-primary-foreground text-[11px] px-3 py-1 font-semibold whitespace-nowrap">
+            7.71 CGPA
+          </span>
         </div>
         <div>
           <h2 className="text-2xl">Chaitanya Menon</h2>
