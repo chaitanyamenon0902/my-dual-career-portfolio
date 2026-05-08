@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import portrait from "@/assets/chaitanya.jpg";
+import portrait from "@/assets/chaitanya.jpeg";
 import { useMode } from "./ModeToggle";
 
 function useTypewriter(words: string[], { typeMs = 75, deleteMs = 40, holdMs = 1400 } = {}) {
@@ -61,7 +61,7 @@ const skillsByMode: Record<"web" | "data", Skill[]> = {
 
 export function Hero() {
   const { mode } = useMode();
-  const roles = ["Full Stack Developer", "Mobile App Developer", "Data Analyst", "ML Engineer"];
+  const roles = ["Full Stack Developer_", "Mobile App Developer_", "Data Analyst_", "ML Engineer_"];
   const title = mode === "web" ? "Full Stack Developer" : "Data Scientist";
   const typed = useTypewriter(roles);
 
@@ -86,7 +86,7 @@ export function Hero() {
             className="w-32 h-32 rounded-full object-cover ring-glow-primary"
           />
           <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 rounded-full bg-primary text-primary-foreground text-[11px] px-3 py-1 font-semibold whitespace-nowrap">
-            7.71 CGPA
+            7.61 CGPA
           </span>
         </div>
         <div>

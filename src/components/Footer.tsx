@@ -3,7 +3,7 @@ export function Footer() {
     <footer className="px-6 sm:px-12 lg:px-20 py-16 max-w-7xl mx-auto text-center">
       <div className="flex flex-wrap justify-center gap-10 text-sm">
         <a className="hover:text-primary transition-colors" href="https://github.com/chaitanyamenon0902" target="_blank" rel="noreferrer">GitHub</a>
-        <a className="hover:text-primary transition-colors" href="https://www.linkedin.com/in/chaitanya-menon" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a className="hover:text-primary transition-colors" href="https://www.linkedin.com/in/chaitanya-menon-969a13311/" target="_blank" rel="noreferrer">LinkedIn</a>
         <a className="hover:text-primary transition-colors" href="mailto:chaitanyamenon2005@gmail.com">Gmail</a>
       </div>
       <a

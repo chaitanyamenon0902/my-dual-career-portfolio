@@ -72,14 +72,24 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+
+      { title: "Chaitanya Menon Portfolio" },
+
+      {
+        name: "description",
+        content: "Portfolio showcasing full-stack projects, AI apps, and data-driven solutions."
+      },
+
+      { name: "author", content: "Chaitanya Menon" },
+
+      { property: "og:title", content: "Chaitanya Portfolio" },
+
+      {
+        property: "og:description",
+        content: "Full-stack developer building AI, web, and data-driven applications."
+      },
+
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {

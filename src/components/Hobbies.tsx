@@ -1,6 +1,6 @@
 import readingImg from "@/assets/hobby-reading.png";
 import volleyballImg from "@/assets/hobby-volleyball.png";
-import doodlingImg from "@/assets/hobby-doodling.png";
+import doodlingImg from "@/assets/doodling.png";
 import codingImg from "@/assets/hobby-coding.png";
 
 const HOBBIES = [
