@@ -20,12 +20,11 @@ export function Hobbies() {
             key={h.title}
             className="rounded-xl border border-border bg-card overflow-hidden hover:border-primary/60 transition-colors"
           >
-            <div className="h-40 bg-background flex items-center justify-center p-4">
+            <div className="h-40 bg-background overflow-hidden">
               <img
                 src={h.img}
                 alt={h.title}
-                className="max-h-full max-w-full object-contain grayscale"
-                style={{ imageRendering: "pixelated" }}
+                className="w-full h-full object-cover grayscale"
               />
             </div>
             <div className="p-5 border-t border-border">
